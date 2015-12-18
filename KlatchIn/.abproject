@@ -1,0 +1,28 @@
+{
+  "ProjectName": "KlatchIn",
+  "ProjectGuid": "2212a50b-b9c5-442f-8024-be36e52433c4",
+  "projectVersion": 1,
+  "AppIdentifier": "com.telerik.KlatchIn",
+  "DisplayName": "KlatchIn",
+  "Author": "",
+  "Description": "KlatchIn",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{F0A65104-D4F4-4012-B799-F612D75820F6}",
+  "AndroidPermissions": [
+    "android.permission.INTERNET"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "false",
+  "iOSStatusBarStyle": "Default",
+  "FrameworkVersion": "1.4.3",
+  "Framework": "NativeScript"
+}
