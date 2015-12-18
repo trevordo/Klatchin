@@ -3,7 +3,27 @@
     <GridLayout rows="auto, *">
         <widgets:action-bar />
         <StackLayout row="1">
+
+            <GridLayout rows="*">
+
+                <ListView items="{{ listItems }}" itemTap="onListViewItemTap">
+
+                    <ListView.itemTemplate>
+                        <GridLayout columns="*" cssClass="padded-label">
+
+
+                            <StackLayout col="0" cssClass="padded-label-stack">
+                                <Label text="{{ header }}" cssClass="title-label" textWrap="true" />
+                                <Label text="{{ description }}" textWrap="true" />
+                            </StackLayout>
+
+                        </GridLayout>
+                    </ListView.itemTemplate>
+                </ListView>
+                <ActivityIndicator busy="{{ isLoading }}" />
+            </GridLayout>
             <!-- additional view content -->
+
             <!-- START_CUSTOM_CODE_homeView -->
             <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
 

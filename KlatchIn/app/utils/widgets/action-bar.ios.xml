@@ -3,7 +3,7 @@
     <GridLayout cssClass="action-bar" columns="auto, *, auto" colSpan="3" style="font-size: 18; padding: 0 10; color: #007aff; background-color: #f0f0f0">
         <GridLayout col="0" columns="16, *" tap="backTap" orientation="horizontal" cssClass="action-wrap" horizontalAlignment="left" verticalAlignment="center" >
             <Button text="⬗" visibility="{{ backButtonHidden ? 'collapsed' : 'visible' }}" verticalAlignment="center" isUserInteractionEnabled="false"
-                    style="font-size: 44; height: 16; margin: -7 8 0 0; width: 12" />
+					style="font-size: 44; height: 16; margin: -7 8 0 0; width: 12" />
             <Button col="1" text="Back" visibility="{{ backButtonHidden ? 'collapsed' : 'visible' }}" isUserInteractionEnabled="false" />
         </GridLayout>
 

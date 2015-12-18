@@ -1,9 +1,9 @@
 {
-    "name": "tns-template-blank",
+    "name": "tns-template-screen-builder",
     "main": "app.js",
     "version": "1.4.0",
     "author": "Telerik <support@telerik.com>",
-    "description": "Nativescript blank project template",
+    "description": "Nativescript Screen Builder template",
     "license": "BSD",
     "keywords": [
         "telerik",

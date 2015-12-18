@@ -15,8 +15,7 @@ activityindicator {
 label,
 textfield,
 searchbar,
-switch
-{
+switch {
     vertical-align: center;
 }
 

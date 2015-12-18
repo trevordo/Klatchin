@@ -3,14 +3,72 @@
   "views": [
     {
       "type": "NativeScript:view",
+      "name": "authenticationView",
+      "components": [
+        {
+          "type": "NativeScript:authentication",
+          "name": "authenticationViewModel",
+          "dataProvider": "klatchIn",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "signinLabel": "Sign In",
+          "signinRedirect": "homeView",
+          "enableRegistration": true,
+          "gotoRegisterLabel": "Register",
+          "registerEmailLabel": "Email",
+          "registerPasswordLabel": "Password",
+          "registerNameLabel": "Name",
+          "registerLabel": "Register",
+          "registerRedirect": "homeView",
+          "gotoSigninLabel": "Sign In"
+        }
+      ],
+      "title": "Authentication",
+      "addToNavigation": false
+    },
+    {
+      "type": "NativeScript:view",
       "name": "homeView",
-      "components": [],
-      "title": "Home View",
+      "components": [
+        {
+          "type": "NativeScript:list",
+          "name": "homeViewModel",
+          "dataProvider": "klatchIn",
+          "collection": "PublicList",
+          "headerField": "Title",
+          "subHeaderField": "SpeakerName",
+          "masterDetails": true,
+          "detailHeaderField": "Title",
+          "detailSubHeaderField": "SpeakerName",
+          "detailDescriptionField": "Abstract",
+          "pullToRefresh": false,
+          "endlessScroll": false
+        }
+      ],
+      "title": "List",
       "addToNavigation": true,
-      "icon": "home"
+      "icon": "organize"
+    },
+    {
+      "type": "NativeScript:view",
+      "name": "profileView",
+      "components": [],
+      "title": "Profile",
+      "addToNavigation": true,
+      "icon": "contacts"
     }
   ],
-  "dataProviders": [],
+  "dataProviders": [
+    {
+      "type": "NativeScript:dataProvider",
+      "name": "klatchIn",
+      "everliveUrl": "//platform.telerik.com/bs-api/v1/",
+      "title": "KlatchIn / KlatchIn",
+      "source": "everlive",
+      "everliveKey": "81dar141coofg95g",
+      "offlineStorage": false
+    }
+  ],
   "name": "nativeScriptApp",
   "navigation": "listmenu",
   "transition": "none",

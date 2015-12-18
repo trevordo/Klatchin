@@ -1,15 +1,83 @@
 'use strict';
 var isInit = true,
     helpers = require('../../utils/widgets/helper'),
+
+    service = require('./homeView-service'),
     // additional requires
+
     viewModel = require('./homeView-view-model');
 
+function onListViewItemTap(args) {
+    var itemData = viewModel.get('listItems')[args.index];
+
+    helpers.navigate({
+        moduleName: 'components/homeView/itemDetails/itemDetails',
+        context: itemData.details
+    });
+}
+exports.onListViewItemTap = onListViewItemTap;
+
+function flattenLocationProperties(dataItem) {
+    var propName, propValue,
+        isLocation = function(value) {
+            return propValue && typeof propValue === 'object' &&
+                propValue.longitude && propValue.latitude;
+        };
+
+    for (propName in dataItem) {
+        if (dataItem.hasOwnProperty(propName)) {
+            propValue = dataItem[propName];
+            if (isLocation(propValue)) {
+                dataItem[propName] =
+                    'Latitude: ' + propValue.latitude +
+                    'Longitude: ' + propValue.longitude;
+            }
+        }
+    }
+}
 // additional functions
+
 function pageLoaded(args) {
     var page = args.object;
 
     helpers.platformInit(page);
     page.bindingContext = viewModel;
+
+    viewModel.set('isLoading', true);
+
+    service.getAllRecords()
+        .then(function(result) {
+            var itemsList = [];
+
+            result.forEach(function(item) {
+
+                flattenLocationProperties(item);
+
+                itemsList.push({
+
+                    header: item.Title,
+
+                    description: item.SpeakerName,
+
+                    details: {
+
+                        header: item.Title,
+
+                        subheader: item.SpeakerName,
+
+                        description: item.Abstract,
+
+                    }
+
+                });
+            });
+
+            viewModel.set('listItems', itemsList);
+            viewModel.set('isLoading', false);
+        })
+        .catch(function onCatch() {
+            viewModel.set('isLoading', false);
+        });
     // additional pageLoaded
 
     if (isInit) {
